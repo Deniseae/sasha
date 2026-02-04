@@ -1,0 +1,41 @@
+:root {
+  /* Variables de color de Sasha */
+  --sasha-pink: #ad1457;
+  --sasha-gold: #d4a373;
+  --bg-light: #fdfdfd;
+  --text-dark: #333333;
+}
+
+body {
+  margin: 0;
+  /* Aquí usamos POPPINS para todo el cuerpo del texto */
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+.navbar-brand {
+  /* Aquí usamos PLAYFAIR DISPLAY para los títulos */
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+/* Un toque extra para que los párrafos se vean limpios */
+p {
+  font-weight: 300; /* Hace la letra Poppins un poco más finita y elegante */
+  line-height: 1.6;
+}
+
+/* Estilo para los botones que ya veníamos usando */
+.btn-sasha {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

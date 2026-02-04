@@ -1,0 +1,56 @@
+.user-container {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.user-badge {
+  background: #ad1457;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.user-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.sasha-card-beauty {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(252, 228, 236, 0.5);
+  border-radius: 20px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+}
+
+.sasha-card-beauty:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(173, 20, 87, 0.08);
+}
+
+.btn-sasha-glow {
+  background: #ad1457;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(173, 20, 87, 0.3);
+}
+
+.btn-turno-sasha {
+  background: #fce4ec;
+  color: #ad1457;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,113 @@
+.nav-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+/* Efecto cuando bajás el scroll */
+.nav-shrink {
+  padding: 10px 50px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(173, 20, 87, 0.08);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+}
+
+.nav-logo-img {
+  height: 45px; /* Tamaño ideal para el navbar */
+  transition: height 0.3s ease;
+}
+
+.nav-shrink .nav-logo-img {
+  height: 35px; /* Se achica un poco al scrollear */
+}
+
+.nav-logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ad1457;
+}
+
+.text-thin {
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #d4a373; /* Dorado para el "Estética" */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Enlaces y Botones */
+.nav-link-galeria {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #555;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-link-galeria:hover {
+  color: #ad1457;
+}
+
+.nav-btn {
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: #ad1457;
+  color: white;
+}
+
+.login-btn:hover {
+  background: #880e4f;
+  box-shadow: 0 5px 15px rgba(173, 20, 87, 0.2);
+}
+
+.logout-btn {
+  background: #fce4ec;
+  color: #ad1457;
+}
+
+.nav-saludo {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.nav-saludo span {
+  font-weight: 700;
+  color: #333;
+}

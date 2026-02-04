@@ -1,0 +1,67 @@
+.admin-dashboard-container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.admin-header {
+  margin-bottom: 3rem;
+}
+
+.admin-badge {
+  background: #fce4ec;
+  color: #ad1457;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.admin-welcome-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.text-sasha-pink {
+  color: #ad1457;
+}
+
+.admin-grid-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.admin-card-btn {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.admin-card-btn:hover {
+  transform: translateY(-10px);
+  border-color: #ad1457;
+  box-shadow: 0 15px 35px rgba(173, 20, 87, 0.1);
+}
+
+.icon-wrap {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.btn-logout-sasha {
+  background: #eee;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  color: #666;
+  font-weight: 600;
+}

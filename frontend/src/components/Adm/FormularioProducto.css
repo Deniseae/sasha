@@ -1,0 +1,82 @@
+.form-sasha {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-sasha h3 {
+  font-family: "Playfair Display", serif;
+  color: #ad1457;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.input-group label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-sasha input,
+.form-sasha select {
+  padding: 12px 15px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background-color: #fcfcfc;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-sasha input:focus,
+.form-sasha select:focus {
+  outline: none;
+  border-color: #ad1457;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(173, 20, 87, 0.1);
+}
+
+/* Estilo especial para el input de archivo */
+.form-sasha input[type="file"] {
+  padding: 10px;
+  background: #f8f9fa;
+  border: 1px dashed #d4a373;
+  cursor: pointer;
+}
+
+.btn-save {
+  background: #ad1457;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-save:hover {
+  background: #880e4f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(173, 20, 87, 0.3);
+}
+
+.btn-save:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}

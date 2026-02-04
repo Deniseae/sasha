@@ -1,0 +1,83 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.footer-sasha {
+  background-color: #fffafa !important; /* Blanco rosado muy suave */
+  border-top: 1px solid #f8bbd0;
+  color: #4a4a4a !important;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* --- TÍTULOS --- */
+.title-footer {
+  color: #ad1457 !important; /* Fucsia oscuro/borravino */
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.text-accent {
+  color: #d4a373 !important; /* Dorado/Bronce */
+}
+
+/* --- LINKS --- */
+.footer-link {
+  color: #6d6d6d !important;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.footer-link:hover {
+  color: #f06292 !important;
+  padding-left: 5px;
+}
+
+/* --- REDES SOCIALES --- */
+.btn-social-sasha {
+  border: 1px solid #f8bbd0;
+  color: #ad1457;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.btn-social-sasha:hover {
+  background: #f06292;
+  color: white !important;
+  border-color: #f06292;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(240, 98, 146, 0.2);
+}
+
+/* --- LÍNEA DIVISORIA --- */
+.hr-sasha {
+  border-color: #f8bbd0 !important;
+  opacity: 0.5;
+}
+
+.copyright-text {
+  font-size: 0.85rem;
+  color: #888 !important;
+}
+
+.copyright-text strong {
+  color: #ad1457;
+}
+.dev-credits {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #6d6d6d;
+    letter-spacing: 0.5px;
+}
+
+.dev-credits strong {
+    color: #070707; 
+    font-weight: 600;
+}
