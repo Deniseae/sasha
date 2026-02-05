@@ -4,24 +4,28 @@ import { GoogleLogin } from "@react-oauth/google";
 import api from "../api/axios";
 import Swal from "sweetalert2";
 import "./Login.css";
+// ESTA ES LA LÍNEA QUE FALTABA (Ajusta la ruta si es necesario)
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mostrarPassword, setMostrarPassword] = useState(false);
+
+  // Ahora la línea 13 NO dará error porque useAuth ya está importado arriba
+  const { login } = useAuth();
   const navigate = useNavigate();
 
-  // ESTA es la función que te faltaba definir
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Petición al backend
       const res = await api.post("/login", { email, password });
 
-      // Guardamos el token y los datos del usuario
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      // IMPORTANTE: Guardamos en el contexto para que el Nav se actualice
+      login(res.data.user, res.data.token);
 
-      Swal.fire({
+      await Swal.fire({
         title: "¡Bienvenida!",
         text: "Inicio de sesión exitoso",
         icon: "success",
@@ -29,8 +33,13 @@ const Login = () => {
         showConfirmButton: false,
       });
 
-      // Redirigir al panel o al inicio
-      navigate("/admin");
+      // Redirigir según el rol
+      const userRole = res.data.user.rol;
+      if (userRole === "admin" || userRole === "adminPrincipal") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
     } catch (err) {
       console.error("Error en login:", err);
       Swal.fire({
@@ -46,7 +55,7 @@ const Login = () => {
       const res = await api.post("/auth/google", {
         token: credentialResponse.credential,
       });
-      localStorage.setItem("token", res.data.token);
+      login(res.data.user, res.data.token);
       navigate("/admin");
     } catch (err) {
       console.error("Error Google Login:", err);
@@ -73,16 +82,18 @@ const Login = () => {
               placeholder="Tu Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="username"
               required
             />
           </div>
+
           <div className="input-group">
             <input
               type={mostrarPassword ? "text" : "password"}
               placeholder="Tu Contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password" // <-- Agregado
+              autoComplete="current-password"
               required
             />
             <span
@@ -93,6 +104,7 @@ const Login = () => {
               {mostrarPassword ? "🙈" : "👁️"}
             </span>
           </div>
+
           <button type="submit" className="btn-login-submit">
             INGRESAR
           </button>
@@ -115,7 +127,7 @@ const Login = () => {
         </div>
 
         <p className="footer-text">
-          ¿Aún no te atendes con nosotros?{" "}
+          ¿Aún no te cuidas con nosotros?{" "}
           <Link to="/registro">Regístrate aquí</Link>
         </p>
       </div>

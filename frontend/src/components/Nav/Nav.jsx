@@ -4,14 +4,15 @@ import { useAuth } from "../../context/AuthContext";
 import "./Nav.css";
 
 const Nav = () => {
+  // usuario viene del Contexto. Asegúrate que en AuthContext
+  // estés usando los datos que guardamos en el Login.
   const { usuario, logout } = useAuth();
   const navigate = useNavigate();
   const [shrink, setShrink] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const y = window.scrollY;
-      if (y > 25) setShrink(true);
+      if (window.scrollY > 25) setShrink(true);
       else setShrink(false);
     };
     window.addEventListener("scroll", handleScroll);
@@ -42,7 +43,6 @@ const Nav = () => {
       </div>
 
       <div className="nav-right">
-        {/* Link a Galería siempre visible */}
         <Link to="/galeria" className="nav-link-galeria">
           📷 GALERÍA
         </Link>
@@ -55,20 +55,26 @@ const Nav = () => {
           <>
             <div className="nav-user-info d-none d-lg-flex">
               <span className="nav-saludo">
-                Hola, <span>{usuario.nombre?.split(" ")[0] || "Bella"}</span>
+                {/* Ajustamos a 'nombres' que es como viene de tu DB */}
+                Hola, <span>
+                  {usuario.nombres?.split(" ")[0] || "Bella"}
+                </span>{" "}
+                ✨
               </span>
             </div>
 
             {/* Botón dinámico según Rol */}
             <Link
               to={
-                usuario.rol === "adminPrincipal"
+                usuario.rol === "admin" || usuario.rol === "adminPrincipal"
                   ? "/admin"
-                  : "/usuario/mis-turnos"
+                  : "/mis-turnos" // Ajustado a una ruta más común
               }
               className="nav-btn panel-btn"
             >
-              {usuario.rol === "adminPrincipal" ? "GESTIÓN" : "MIS TURNOS"}
+              {usuario.rol === "admin" || usuario.rol === "adminPrincipal"
+                ? "GESTIÓN"
+                : "MIS TURNOS"}
             </Link>
 
             <button className="nav-btn logout-btn" onClick={handleLogout}>

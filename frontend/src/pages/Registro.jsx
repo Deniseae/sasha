@@ -25,7 +25,7 @@ const Registro = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Usamos el 'res' para que VS Code no marque error de "variable no usada"
+      // Intento 1: con /auth/registro
       const res = await api.post("/auth/registro", formData);
       console.log("Registro exitoso:", res.data);
 
@@ -39,23 +39,30 @@ const Registro = () => {
     } catch (err) {
       console.error("Error detallado:", err.response || err);
 
-      // Si da 404 con /auth/registro, intentamos solo con /registro
+      // Si el error es 404, intentamos el segundo camino
       if (err.response?.status === 404) {
         try {
           const resRetry = await api.post("/registro", formData);
           console.log("Registro exitoso (retry):", resRetry.data);
-          // ... mismo Swal y navigate que arriba ...
+
+          // ACÁ agregamos el Swal que faltaba en el retry
+          await Swal.fire({
+            title: "¡Bienvenida, Bella!",
+            text: "Tu cuenta ha sido creada con éxito.",
+            icon: "success",
+            confirmButtonColor: "#ad1457",
+          });
+          navigate("/login");
           return;
         } catch (retryErr) {
-          console.error("Fallo definitivo:", retryErr);
+          console.error("Fallo definitivo en el retry:", retryErr);
         }
       }
 
+      // Si llega acá es porque falló todo
       Swal.fire({
-        title: "Ups! Algo salió mal",
-        text:
-          err.response?.data?.msg ||
-          "No se pudo completar el registro. Verifica los datos.",
+        title: "Ups!",
+        text: err.response?.data?.msg || "No se pudo completar el registro.",
         icon: "error",
         confirmButtonColor: "#f06292",
       });
@@ -70,7 +77,7 @@ const Registro = () => {
       <div className="login-card" style={{ maxWidth: "600px" }}>
         <div className="login-header">
           <span style={{ fontSize: "2rem" }}>✨</span>
-          <h2>Unite a Sasha</h2>
+          <h2>Unite a nuesto centro</h2>
           <p>Tu espacio de belleza y cuidado personal te espera.</p>
         </div>
 
